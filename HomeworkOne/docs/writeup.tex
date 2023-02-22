@@ -1,0 +1,114 @@
+\documentclass[12pt, letterpaper]{article}
+
+\input{packages.tex}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+    Will Daniels; 112774725
+
+    February 10, 2023
+
+    Computational Astrophysics; AST 390
+
+    Homework 1
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \includegraphics[height = 48pt]{SBULogoStacked}
+    \end{flushright}
+\end{minipage}
+\noindent
+\rule{\textwidth}{1pt}
+
+\tableofcontents
+
+\section{Second derivative}
+Consider the taylor expansions
+\begin{align}
+    f_{i+1} &=
+    f_i +
+    \Delta x \left. \frac{df}{dx} \right|_i +
+    \frac{1}{2} \Delta x^2 \left. \frac{d^2}{dx^2} \right|_i +
+    \mathcal{O} \left(\Delta x^3 \right)
+    \\
+    f_{i-1} &=
+    f_i -
+    \Delta x \left. \frac{df}{dx} \right|_i +
+    \frac{1}{2} \Delta x^2 \left. \frac{d^2}{dx^2} \right|_i +
+    \mathcal{O} \left(\Delta x^3 \right)
+\end{align}
+To find the second order approximation of the first derivative, we
+subtracted the two expressions. Now we add them so the second derivative
+term doesn't cancel.
+\begin{align}
+    f_{i+1} + f_{i-1}
+    &=
+    2 f_i +
+    \Delta x^2 \frac{d^2f}{dx^2} +
+    \mathcal{O} \left( \Delta x^3 \right)
+    \\
+    \frac{d^2f}{dx^2}
+    &=
+    \frac{f_{i+1} - f_i + f_{i-1}}{\Delta x^2} +
+    \mathcal{O} \left( \Delta x^3 \right)
+\end{align}
+
+As expected, the algorithm converges quadraticly. Ten iterations are presented
+in table \ref{tab:converge}.
+
+\begin{table}[!b]
+    \centering
+    \caption{Ten iterations of the algorithm. The initial step size is 0.5 and
+        it reduces by a factor of two each time}
+    \label{tab:converge}
+    \begin{tabular}{ c c c }
+    \hline\hline
+    Iteration & Error & Ratio\\
+    \hline
+    1 & 0.00206261 & -- \\
+    2 & 0.000518884 & 0.252 \\
+    3 & 0.000129924 & 0.250 \\
+    4 & 3.24936e-5 & 0.250 \\
+    5 & 8.12423e-6 & 0.250 \\
+    6 & 2.0311e-6 & 0.250 \\
+    7 & 5.07778e-7 & 0.250 \\
+    8 & 1.26944e-7 & 0.250 \\
+    9 & 3.17375e-8 & 0.250 \\
+    10 & 7.94152e-9 & 0.250 \\
+    \hline\hline
+    \end{tabular}
+\end{table}
+
+\section{Roundoff error}
+Let's start by finding the equivalent expression with no floating point
+subtractions.
+\begin{gather}
+    \sqrt{x^2 + 1} \left( \frac{\sqrt{x^2 + 1} + 1}{\sqrt{x^2 + 1} + 1} \right)
+    \\
+    \frac{x^2 + 1 - 1 + 1}{\sqrt{x^2 + 1} + 1}
+    \\
+    \frac{x^2}{\sqrt{x^2 + 1} + 1}
+\end{gather}
+
+The results of using each form are given in table \ref{tab:roundoff}. Clearly
+the modified equation is more accurate.
+
+\begin{table}[h]
+  \centering
+  \caption{Comparison of equivalent forms at specified inputs}
+  \label{tab:roundoff}
+  \begin{tabular} { c c c }
+    \hline\hline
+    Evaluation point & Original & Equivalent \\
+    \hline
+    1.0e-6 & 2 & 1e-12 \\
+    1.0e-7 & 2 & 1e-14 \\
+    1.0e-8 & 2 & 1e-16 \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+\end{document}
