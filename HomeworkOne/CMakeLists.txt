@@ -22,8 +22,6 @@ set(public_headers
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/")
-
 add_executable(QuestionOne examples/question_one.cpp)
 target_link_libraries(QuestionOne PUBLIC ${PROJECT_NAME})
 

@@ -15,6 +15,7 @@ public:
     double converge(double start, double end, unsigned intervals,
                     unsigned max_iter);
 
+    void reset();
     double get_integral();
     unsigned get_num_iter();
 

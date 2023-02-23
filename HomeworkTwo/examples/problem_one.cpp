@@ -9,7 +9,7 @@ double Function(double input);
 int main()
 {
     auto Integrator = will::Simpsons(Function);
-    std::vector<unsigned> Intervals = {3, 5, 9, 17, 33};
+    std::vector<unsigned> Intervals = {3, 5, 9, 17, 33, 65, 129, 257, 513, 1025};
     const double start = 0.0,
                  end   = 5.0,
                  analytic = -5.0 / (2.0 * M_PI);
@@ -17,6 +17,7 @@ int main()
            error,
            approximation;
 
+    std::cout << "iterations, approximation, error, convergence" << std::endl;
     for (auto i : Intervals)
     {
         approximation = Integrator.evaluate(start, end, i);

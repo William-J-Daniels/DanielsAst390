@@ -9,6 +9,7 @@ Simpsons::Simpsons(std::function<double(double)> init_Function)
 
 double Simpsons::evaluate(double start, double end, unsigned intervals)
 {
+    reset();
     double differential = (end - start) / intervals;
     double current;
 
@@ -47,6 +48,12 @@ double Simpsons::converge(double start, double end, unsigned int intervals,
              && num_iter < max_iter);
 
     return integral;
+}
+
+void Simpsons::reset()
+{
+    integral = 0.0;
+    num_iter = 1;
 }
 
 double Simpsons::get_integral()
