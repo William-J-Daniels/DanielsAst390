@@ -7,6 +7,8 @@ project(HomeworkTwo VERSION 1.0.0)
 add_library(${PROJECT_NAME} SHARED
   include/simpsons.h
   src/simpsons.cpp
+  include/indefinite_integrals.h
+  src/indefinite_integrals.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -19,6 +21,7 @@ target_include_directories(${PROJECT_NAME}
 
 set(public_headers
   include/simpsons.h
+  include/indefinite_integrals.h
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
 

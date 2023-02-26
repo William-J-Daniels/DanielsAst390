@@ -1,4 +1,5 @@
 #include <simpsons.h>
+#include <iostream>
 
 using namespace will;
 
@@ -9,7 +10,7 @@ Simpsons::Simpsons(std::function<double(double)> init_Function)
 
 double Simpsons::evaluate(double start, double end, unsigned intervals)
 {
-    reset();
+    integral = 0.0;
     double differential = (end - start) / intervals;
     double current;
 
