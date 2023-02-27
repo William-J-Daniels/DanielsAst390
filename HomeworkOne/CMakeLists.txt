@@ -27,21 +27,4 @@ target_link_libraries(QuestionOne PUBLIC ${PROJECT_NAME})
 
 add_executable(QuestionTwo examples/question_two.cpp)
 
-# FIND_PACKAGE(LATEX)
-# IF(LATEX_FOUND AND LATEX_PDFLATEX_FOUND)
-#     add_custom_target(latex-PRE_BUILD
-#         COMMAND ${PDFLATEX_COMPILER} -output-directory ${CMAKE_CURRENT_SOURCE_DIR}/docs/ ${CMAKE_CURRENT_SOURCE_DIR}/docs/writeup.tex
-#         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/docs/
-#         DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/docs/writeup.tex
-#     )
-#     add_custom_target(latex-pdf
-#         COMMAND ${PDFLATEX_COMPILER} -output-directory ${CMAKE_CURRENT_SOURCE_DIR}/docs/ ${CMAKE_CURRENT_SOURCE_DIR}/docs/writeup.tex
-#         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/docs/
-#         DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/docs/writeup.tex
-#     )
-#
-#     add_custom_target(all-formats ALL)
-#     add_dependencies(all-formats latex-pdf)
-# ELSE()
-#     MESSAGE(ERROR "Latex might not be installed, not building docs.")
-# ENDIF()
+add_subdirectory(docs/)

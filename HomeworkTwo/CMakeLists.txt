@@ -30,3 +30,5 @@ target_link_libraries(ProblemOne PUBLIC ${PROJECT_NAME})
 
 add_executable(ProblemTwo examples/problem_two.cpp)
 target_link_libraries(ProblemTwo PUBLIC ${PROJECT_NAME})
+
+add_subdirectory(docs/)
