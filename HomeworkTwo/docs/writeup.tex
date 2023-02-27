@@ -1,0 +1,54 @@
+\documentclass[12pt, letterpaper]{article}
+
+\input{../../LatexAssets/packages.tex}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+    Will Daniels; 112774725
+
+    February 26, 2023
+
+    Computational Astrophysics; AST 390
+
+    Homework 2
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \includegraphics[height = 48pt]{../../LatexAssets/SBULogoStacked}
+    \end{flushright}
+\end{minipage}
+\noindent
+\rule{\textwidth}{1pt}
+
+\tableofcontents
+
+\section{Composite Simpson's rule for odd bins}
+\begin{table}[!b]
+    \centering
+    \caption{Ten iterations of the algorithm. The initial step size is 0.5 and
+        it reduces by a factor of two each time}
+    \label{tab:converge}
+    \begin{tabular}{ c c c }
+    \hline\hline
+    Iteration & Error & Ratio\\
+    \hline
+    1 & 0.00206261 & -- \\
+    2 & 0.000518884 & 0.252 \\
+    3 & 0.000129924 & 0.250 \\
+    4 & 3.24936e-5 & 0.250 \\
+    5 & 8.12423e-6 & 0.250 \\
+    6 & 2.0311e-6 & 0.250 \\
+    7 & 5.07778e-7 & 0.250 \\
+    8 & 1.26944e-7 & 0.250 \\
+    9 & 3.17375e-8 & 0.250 \\
+    10 & 7.94152e-9 & 0.250 \\
+    \hline\hline
+    \end{tabular}
+\end{table}
+
+
+\section{Maxwell-Boltzmann distribution}
+\end{document}
