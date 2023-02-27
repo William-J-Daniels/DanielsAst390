@@ -26,29 +26,74 @@
 \tableofcontents
 
 \section{Composite Simpson's rule for odd bins}
+The modifications of the composite Simpon's rule for integration was found
+using Sympy in the Jupyter notebook in \verb|tools/|. I found the area under
+the last two points of the parabola fitted by the last three points to be
+\begin{equation}
+  \frac{dx}{12} \left( 5f_0 + 8f_1 - f_2 \right)
+\end{equation}
+Table \ref{tab:converge} describes the convergence of my implimentation. I
+extended the number of bins to better see the expected behavior of fourth order
+convergence.
+
 \begin{table}[!b]
     \centering
-    \caption{Ten iterations of the algorithm. The initial step size is 0.5 and
-        it reduces by a factor of two each time}
+    \caption{Convergence of composite Simpson's rule with odd numbers of bins}
     \label{tab:converge}
     \begin{tabular}{ c c c }
     \hline\hline
-    Iteration & Error & Ratio\\
+    Bins & Error & Ratio\\
     \hline
-    1 & 0.00206261 & -- \\
-    2 & 0.000518884 & 0.252 \\
-    3 & 0.000129924 & 0.250 \\
-    4 & 3.24936e-5 & 0.250 \\
-    5 & 8.12423e-6 & 0.250 \\
-    6 & 2.0311e-6 & 0.250 \\
-    7 & 5.07778e-7 & 0.250 \\
-    8 & 1.26944e-7 & 0.250 \\
-    9 & 3.17375e-8 & 0.250 \\
-    10 & 7.94152e-9 & 0.250 \\
+    3 & 5.006 & -- \\
+    5 & 0.796 & 6.3 \\
+    9 & 1.051 & 0.75 \\
+    17 & 0.006 & 170 \\
+    33 & 0.02 & 0.28 \\
+    65 & 0.002 & 12 \\
+    129 & 0.0001 & 15 \\
+    257 & 0.00008 & 16 \\
+    513 & 0.0000005 & 16 \\
+    1025 & 0.00000003 & 16 \\
     \hline\hline
     \end{tabular}
 \end{table}
 
+\section{Maxwell-Boltzmann distribution integration}
+Next we are asked to use our Simpson's rule implimentations to integrate the
+Maxwell-Boltzmann distribution for the condotions at the center of the Sun.
 
-\section{Maxwell-Boltzmann distribution}
+Before performing the integration, it is desireable to make a substitution in
+the integral.
+\begin{align}
+  \left< v \right> &=
+  \frac{1}{n_I} \int_0^\infty dp\,
+  \frac{n_I}{\left(2 \pi m_I k_B T\right)^{\nicefrac{3}{2}}}
+  \exp \left(\frac{-p^2}{2 m_I k_B T}\right)
+  4 \pi p^2 \frac{p}{m_I}
+  \\
+  &= \frac{1}{\left(2 \pi m_I k_B T\right)^{\nicefrac{3}{2}}}
+  \frac{4 \pi}{m_I}
+  \int_0^\infty dp\, \exp \left(\frac{-p^2}{2 m_I k_B T}\right)
+  p^3
+  \intertext{Here we make the substitution
+    \(x = \frac{p}{\sqrt{2 m_I k_B T}}\). This gives us
+    \(p = x \sqrt{2 m_I k_B T}\), \(dp = \sqrt{2 m_I k_B T} \,dx\), and leaves
+    the bounds of the integral unchanged.}
+  &= \frac{\sqrt{2 m_I k_B T}}{\left(2 \pi m_I k_B T\right)^{\nicefrac{3}{2}}}
+  \frac{4 \pi}{m_I}
+  \int_0^\infty dx\, \exp\left(-x^2\right) x^3
+  \left( 2 m_I k_B T\right)^{\nicefrac{3}{2}}
+  \\
+  &= \frac{\sqrt{2 m_I k_B T}}{\pi^{\nicefrac{3}{2}}} \frac{4 \pi}{m_I}
+  \int_0^\infty dx\, \exp\left(-x^2\right) x^3
+  \\
+  &= 4 \sqrt\frac{2 k_B T}{m_I \pi}
+  \int_0^\infty dx\, \exp\left(-x^2\right) x^3
+\end{align}
+The integral evaluates to \(\frac{1}{2}\) and this expression matches the
+analytic solution of \(2\sqrt\frac{2 k_B T}{m_I \pi}\). Integrating this using
+the transformations described in lecture, we find that the numeric and analytic
+solutions yeild 561511 meters per second, with the numerical integration taking
+24 iterations to converge.
+
 \end{document}

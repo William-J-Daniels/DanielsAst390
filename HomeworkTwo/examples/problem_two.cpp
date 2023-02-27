@@ -24,10 +24,10 @@ int main()
                                       std::numeric_limits<unsigned>::max());
     result *= factor * integrand_max;
 
+
     std::cout << "Analytic: " << analtic << std::endl
               << "Numerical: " << result << std::endl
-              << "Iterations: " << Integral.get_num_iter() << std::endl
-              << "Difference : " << std::abs(result - analtic) << std::endl;
+              << "Iterations: " << Integral.get_num_iter() << std::endl;
 
 
     return 0;
