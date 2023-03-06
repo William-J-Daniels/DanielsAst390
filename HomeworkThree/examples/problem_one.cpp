@@ -1,4 +1,5 @@
 #include <eulermethod.h>
+#include <eulercromer.h>
 #include <iostream>
 
 double TestFunc(double x)
@@ -9,7 +10,7 @@ double TestFunc(double x)
 int main()
 {
     std::pair<double, double> init = {0.0, 0.0};
-    auto Test = will::EulerMethod(TestFunc, init, 0.1);
+    auto Test = will::EulerCromer(TestFunc, init, 0.1);
 
     for (int i = 0; i < 10; i++)
     {

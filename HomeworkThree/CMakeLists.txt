@@ -9,6 +9,8 @@ add_library(${PROJECT_NAME} SHARED
   src/ode_integrator.cpp
   include/eulermethod.h
   src/eulermethod.cpp
+  include/eulercromer.h
+  src/eulercromer.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -22,14 +24,12 @@ target_include_directories(${PROJECT_NAME}
 set(public_headers
   include/ode_integrator.h
   include/eulermethod.h
+  include/eulercromer.h
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
 
 add_executable(Hw3P1 examples/problem_one.cpp)
 target_link_libraries(Hw3P1 PUBLIC ${PROJECT_NAME})
-#
-# add_executable(ProblemTwo examples/problem_two.cpp)
-# target_link_libraries(ProblemTwo PUBLIC ${PROJECT_NAME})
 
 # if(build_docs)
 #   add_subdirectory(docs/)
