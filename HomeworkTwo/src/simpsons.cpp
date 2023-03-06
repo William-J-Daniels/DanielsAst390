@@ -15,7 +15,7 @@ double Simpsons::evaluate(double start, double end, unsigned intervals)
     double current;
 
     // loop as if we always have even intervals
-    for (unsigned n = 0; n < intervals; n+=2)
+    for (unsigned n = 0; n < intervals-1; n+=2)
     {
         current = start + n*differential;
         integral += Function(current) +
@@ -26,10 +26,10 @@ double Simpsons::evaluate(double start, double end, unsigned intervals)
 
     if (intervals%2) // take advantage of int <-> bool, this runs if odd
     { // adjust for overshoot caused by odd intervals
-        integral -= differential * (
+        integral += differential * (
             5.0 * Function(end) +
-            8.0 * Function(end + differential) -
-            Function(end + 2.0*differential)
+            8.0 * Function(end - differential) -
+            Function(end - 2.0*differential)
         ) / 12.0;
     }
 
