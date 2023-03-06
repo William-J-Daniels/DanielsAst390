@@ -31,6 +31,9 @@ target_link_libraries(Hw2P1 PUBLIC ${PROJECT_NAME})
 add_executable(Hw2P2 examples/problem_two.cpp)
 target_link_libraries(Hw2P2 PUBLIC ${PROJECT_NAME})
 
+add_executable(SimpsonsDemo examples/simpons_rule_demo.cpp)
+target_link_libraries(SimpsonsDemo PUBLIC ${PROJECT_NAME})
+
 if(build_docs)
   add_subdirectory(docs/)
 endif()
