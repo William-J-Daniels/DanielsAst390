@@ -27,4 +27,6 @@ target_link_libraries(Hw1P1 PUBLIC ${PROJECT_NAME})
 
 add_executable(Hw1P2 examples/question_two.cpp)
 
-add_subdirectory(docs/)
+if(build_docs)
+  add_subdirectory(docs/)
+endif()

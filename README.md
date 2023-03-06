@@ -5,6 +5,9 @@ run make.
 
 mkdir build && cd build && cmake .. && make
 
+Building the homework writeups is enabled by default, but may be disabled by
+setting build_docs to OFF.
+
 Run instructions:
 
 Executables are placed in subdirectories of the build directory corresponding
