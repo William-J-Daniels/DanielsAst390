@@ -25,10 +25,10 @@ set(public_headers
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
 
-add_executable(ProblemOne examples/problem_one.cpp)
-target_link_libraries(ProblemOne PUBLIC ${PROJECT_NAME})
+add_executable(Hw2P1 examples/problem_one.cpp)
+target_link_libraries(Hw2P1 PUBLIC ${PROJECT_NAME})
 
-add_executable(ProblemTwo examples/problem_two.cpp)
-target_link_libraries(ProblemTwo PUBLIC ${PROJECT_NAME})
+add_executable(Hw2P2 examples/problem_two.cpp)
+target_link_libraries(Hw2P2 PUBLIC ${PROJECT_NAME})
 
 add_subdirectory(docs/)

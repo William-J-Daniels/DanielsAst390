@@ -6,3 +6,4 @@ project(Ast390 VERSION 1.0.0)
 
 add_subdirectory(HomeworkOne)
 add_subdirectory(HomeworkTwo)
+add_subdirectory(HomeworkThree)
