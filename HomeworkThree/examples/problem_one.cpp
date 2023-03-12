@@ -19,6 +19,7 @@ int main()
 
     std::list<std::array<double, 5>> Results; // linked list to store results
     // time, euler theta, euler nrg, cromer theta, cromer nrg
+    // limited by IO, so prefer constant pesh_back over constant random access
     const std::string FileName = "../../HomeworkThree/data/P1.csv";
     // from directory of executable
 
@@ -26,10 +27,6 @@ int main()
     {
         auto CurrentE  = EulerPend.advance(TIME_STEP);
         auto currentEC = EulerCromerPend.advance(TIME_STEP);
-        // std::cout << EulerPend.get_nrg() << ", " << EulerCromerPend.get_nrg() << std::endl;
-
-        std::cout << std::get<2>(CurrentE) << ", " << std::get<2>(currentEC)
-                  << std::endl;
 
         Results.push_back(std::array<double, 5> {i*TIME_STEP,
                                                  std::get<2>(CurrentE),
@@ -46,7 +43,7 @@ int main()
                   << std::endl;
         std::exit(EXIT_FAILURE);
     }
-    Outfile << "time,euler_pos,euler_nrg,eulercromer_pos, eulercromer_nrg"
+    Outfile << "time,e_pos,e_nrg,ec_pos,ec_nrg"
             << std::endl;
     for (auto r = Results.begin(); r != Results.end(); r++)
     {
