@@ -40,6 +40,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers
 add_executable(Hw3P1 examples/problem_one.cpp)
 target_link_libraries(Hw3P1 PUBLIC ${PROJECT_NAME})
 
+add_subdirectory(data/)
+
 # if(build_docs)
 #   add_subdirectory(docs/)
 # endif()

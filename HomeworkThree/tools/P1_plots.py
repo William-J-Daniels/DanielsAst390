@@ -47,4 +47,4 @@ axs[1].legend(lines3 + lines4, labels3 + labels4,
 
 
 fig.tight_layout()
-fig.savefig("../data/P1_pos.jpeg")
+fig.savefig("../data/P1Plots.jpeg")

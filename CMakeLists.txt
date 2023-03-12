@@ -13,6 +13,9 @@ if(debugging)
   link_libraries(-fsanitize=address)
 endif()
 
+find_package(Python COMPONENTS Interpreter REQUIRED)
+# add checks for reured packages later
+
 add_subdirectory(HomeworkOne)
 add_subdirectory(HomeworkTwo)
 add_subdirectory(HomeworkThree)
