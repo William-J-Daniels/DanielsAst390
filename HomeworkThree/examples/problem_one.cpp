@@ -19,7 +19,7 @@ int main()
 
     std::list<std::array<double, 5>> Results; // linked list to store results
     // time, euler theta, euler nrg, cromer theta, cromer nrg
-    const std::string Outfile = "../../HomeworkThree/data/P1.csv";
+    const std::string FileName = "../../HomeworkThree/data/P1.csv";
     // from directory of executable
 
     for (int i = 0; i < 40; i++)
@@ -37,6 +37,26 @@ int main()
                                                  std::get<2>(currentEC),
                                                  EulerCromerPend.get_nrg()});
     }
+
+    std::ofstream Outfile(FileName);
+    if (Outfile.fail())
+    {
+        std::cerr << "Failed to open " << FileName << ". Check that you have "
+                  << "the necessary permisions and that the path exists."
+                  << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+    Outfile << "time,euler_pos,euler_nrg,eulercromer_pos, eulercromer_nrg"
+            << std::endl;
+    for (auto r = Results.begin(); r != Results.end(); r++)
+    {
+        for (auto a = (*r).begin(); a != (*r).end(); a++)
+        {
+            Outfile << *a << ",";
+        }
+        Outfile << std::endl;
+    }
+    Outfile.close();
 
     return 0;
 }
