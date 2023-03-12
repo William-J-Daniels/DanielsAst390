@@ -9,51 +9,96 @@
 
 int main()
 {
-    const std::pair<double, double> INITIALCONDITIONS = {0.0, (10.0*M_PI/180.0)};
+    const std::pair<double, double> INITCOND1 = {0.0, (10.0*M_PI/180.0)};
+    const std::pair<double, double> INITCOND2 = {0.0, (100.0*M_PI/180.0)};
     const double TIME_STEP = 0.5;
 
-    auto EulerPend = will::EulerPendulum(INITIALCONDITIONS,
-                                         TIME_STEP);
-    auto EulerCromerPend = will::EulerCromerPendulum(INITIALCONDITIONS,
-                                                     TIME_STEP);
+    auto EPend1  = will::EulerPendulum(INITCOND1,
+                                       TIME_STEP);
+    auto ECPend1 = will::EulerCromerPendulum(INITCOND1,
+                                             TIME_STEP);
+    auto EPend2  = will::EulerPendulum(INITCOND2,
+                                       TIME_STEP);
+    auto ECPend2 = will::EulerCromerPendulum(INITCOND2,
+                                             TIME_STEP);
 
-    std::list<std::array<double, 5>> Results; // linked list to store results
+    std::list<std::array<double, 5>> Results1;
+    std::list<std::array<double, 5>> Results2;// linked lists to store results
     // time, euler theta, euler nrg, cromer theta, cromer nrg
     // limited by IO, so prefer constant pesh_back over constant random access
-    const std::string FileName = "../../HomeworkThree/data/P1.csv";
+    const std::string TenDeg     = "../../HomeworkThree/data/TenDeg.csv";
+    const std::string HundredDeg = "../../HomeworkThree/data/HundredDeg.csv";
     // from directory of executable
+
+    /* vectors for the variables I names QQQ1, QQQ2 would have been better and
+     * easier to generalize,but we only need them twice. Maybe it will be fixed
+     * later
+     */
+
+    auto CurrentE1  = EPend1.get_state();
+    auto currentEC1 = ECPend1.get_state();
+
+    auto CurrentE2  = EPend1.get_state();
+    auto currentEC2 = ECPend1.get_state();
 
     for (int i = 0; i < 40; i++)
     {
-        auto CurrentE  = EulerPend.advance(TIME_STEP);
-        auto currentEC = EulerCromerPend.advance(TIME_STEP);
+        CurrentE1  = EPend1.advance(TIME_STEP);
+        currentEC1 = ECPend1.advance(TIME_STEP);
+        Results1.push_back(std::array<double, 5> {i*TIME_STEP,
+                                                 std::get<2>(CurrentE1),
+                                                 EPend1.get_nrg(),
+                                                 std::get<2>(currentEC1),
+                                                 ECPend1.get_nrg()});
 
-        Results.push_back(std::array<double, 5> {i*TIME_STEP,
-                                                 std::get<2>(CurrentE),
-                                                 EulerPend.get_nrg(),
-                                                 std::get<2>(currentEC),
-                                                 EulerCromerPend.get_nrg()});
+        CurrentE2  = EPend2.advance(TIME_STEP);
+        currentEC2 = ECPend2.advance(TIME_STEP);
+        Results2.push_back(std::array<double, 5> {i*TIME_STEP,
+                                                 std::get<2>(CurrentE2),
+                                                 EPend2.get_nrg(),
+                                                 std::get<2>(currentEC2),
+                                                 ECPend2.get_nrg()});
     }
 
-    std::ofstream Outfile(FileName);
-    if (Outfile.fail())
+    std::ofstream TenOut(TenDeg);
+    if (TenOut.fail())
     {
-        std::cerr << "Failed to open " << FileName << ". Check that you have "
+        std::cerr << "Failed to open " << TenDeg << ". Check that you have "
                   << "the necessary permisions and that the path exists."
                   << std::endl;
         std::exit(EXIT_FAILURE);
     }
-    Outfile << "time,e_pos,e_nrg,ec_pos,ec_nrg"
-            << std::endl;
-    for (auto r = Results.begin(); r != Results.end(); r++)
+    TenOut << "time,e_pos,e_nrg,ec_pos,ec_nrg"
+           << std::endl;
+    for (auto r = Results1.begin(); r != Results1.end(); r++)
     {
         for (auto a = (*r).begin(); a != (*r).end(); a++)
         {
-            Outfile << *a << ",";
+            TenOut << *a << ",";
         }
-        Outfile << std::endl;
+        TenOut << std::endl;
     }
-    Outfile.close();
+    TenOut.close();
+
+    std::ofstream HundredOut(HundredDeg);
+    if (HundredOut.fail())
+    {
+        std::cerr << "Failed to open " << HundredDeg << ". Check that you have "
+                  << "the necessary permisions and that the path exists."
+                  << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+    HundredOut << "time,e_pos,e_nrg,ec_pos,ec_nrg"
+               << std::endl;
+    for (auto r = Results2.begin(); r != Results2.end(); r++)
+    {
+        for (auto a = (*r).begin(); a != (*r).end(); a++)
+        {
+            HundredOut << *a << ",";
+        }
+        HundredOut << std::endl;
+    }
+    HundredOut.close();
 
     return 0;
 }

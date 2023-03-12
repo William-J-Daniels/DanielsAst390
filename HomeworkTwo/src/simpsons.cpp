@@ -26,6 +26,7 @@ double Simpsons::evaluate(double start, double end, unsigned intervals)
 
     if (intervals%2) // take advantage of int <-> bool, this runs if odd
     { // adjust for overshoot caused by odd intervals
+        std::cout << "ODD ";
         integral -= differential * (
             5.0 * Function(end) +
             8.0 * Function(end + differential) -
