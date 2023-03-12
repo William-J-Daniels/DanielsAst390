@@ -11,6 +11,12 @@ add_library(${PROJECT_NAME} SHARED
   src/eulermethod.cpp
   include/eulercromer.h
   src/eulercromer.cpp
+  include/pendulum.h
+  src/pendulum.cpp
+  include/eulerpendulum.h
+  src/eulerpendulum.cpp
+  include/eulercromerpendulum.h
+  src/eulercromerpendulum.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -25,6 +31,9 @@ set(public_headers
   include/ode_integrator.h
   include/eulermethod.h
   include/eulercromer.h
+  include/pendulum.h
+  include/eulerpendulum.h
+  include/eulercromerpendulum.h
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
 

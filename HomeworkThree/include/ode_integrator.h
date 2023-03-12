@@ -11,6 +11,7 @@ class OdeIntegrator
 {
     // Abstract class for the integration of one dimensional ODEs
 public:
+    OdeIntegrator(){ }
     OdeIntegrator(std::function<double(double)> init_DiffEq,
                   std::pair<double, double> init_cond,
                   double init_step);
@@ -26,7 +27,7 @@ protected:
     std::function<double(double)> DiffEq;
     std::pair<double, double> state;
     double step_size; // not made const so if i have to do variable step size i
-                      // can inherit from this class
+                      // can inherit from or extend this class
 };
 
 } // namespace will

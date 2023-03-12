@@ -8,8 +8,8 @@ OdeIntegrator::OdeIntegrator(std::function<double(double)> init_DiffEq,
 {
     assert(step_size != 0.0);
 
-    DiffEq = init_DiffEq;
-    state = init_cond;
+    DiffEq    = init_DiffEq;
+    state     = init_cond;
     step_size = init_step;
 }
 
