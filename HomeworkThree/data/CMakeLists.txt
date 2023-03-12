@@ -1,4 +1,4 @@
-# make the csv
+# make the part 1 csv
 add_custom_command(
   OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/TenDeg.csv
          ${CMAKE_CURRENT_SOURCE_DIR}/HundredDeg.csv
@@ -12,7 +12,7 @@ add_custom_target(Hw3P1_csv ALL
           ${CMAKE_CURRENT_SOURCE_DIR}/HundredDeg.csv
 )
 
-# make the plot
+# make the part 1 plot
 add_custom_command(
   OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/P1Plots.jpeg
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/../tools/P1_plots.py

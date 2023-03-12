@@ -17,6 +17,8 @@ add_library(${PROJECT_NAME} SHARED
   src/eulerpendulum.cpp
   include/eulercromerpendulum.h
   src/eulercromerpendulum.cpp
+  include/velocityverletpendulum.h
+  src/velocityverletpendulum.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -34,11 +36,15 @@ set(public_headers
   include/pendulum.h
   include/eulerpendulum.h
   include/eulercromerpendulum.h
+  include/velocityverletpendulum.h
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
 
 add_executable(Hw3P1 examples/problem_one.cpp)
 target_link_libraries(Hw3P1 PUBLIC ${PROJECT_NAME})
+
+add_executable(Hw3P2 examples/problem_two.cpp)
+target_link_libraries(Hw3P2 PUBLIC ${PROJECT_NAME})
 
 add_subdirectory(data/)
 
