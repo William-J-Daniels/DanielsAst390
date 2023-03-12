@@ -14,7 +14,7 @@ if(debugging)
 endif()
 
 find_package(Python COMPONENTS Interpreter REQUIRED)
-# add checks for reured packages later
+# add checks for reqiured packages later
 
 add_subdirectory(HomeworkOne)
 add_subdirectory(HomeworkTwo)

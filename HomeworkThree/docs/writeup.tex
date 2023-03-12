@@ -1,0 +1,72 @@
+\documentclass[12pt, letterpaper]{article}
+
+\input{../../LatexAssets/packages.tex}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+    Will Daniels; 112774725
+
+    March 12, 2023
+
+    Computational Astrophysics; AST 390
+
+    Homework 3
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \includegraphics[height = 48pt]{../../LatexAssets/SBULogoStacked}
+    \end{flushright}
+\end{minipage}
+\noindent
+\rule{\textwidth}{1pt}
+
+\tableofcontents
+
+\section{Euler and Euler-Cromer methods on a simple pendulum}
+
+\begin{figure}[!b]
+  \centering
+  \caption{Comparison of Euler and Euler-Cromer methods for a pendulum starting
+    from rest at 10 and 100 degrees using a time step of 0.5 seconds}
+  \label{fig:pend}
+  \includegraphics[width=\textwidth]{../data/P1Plots}
+\end{figure}
+
+Figure \ref{fig:pend} displays the behavior of two methods for the specified
+pendulums. I know that it is wrong; we expect the Euler method to cause the
+energy of the system to tend towards infinity but that is not what we observe.
+As a matter of fact, at close inspection, I noticed that these two plots are
+actually shifted by one time step. I could not spot the error.
+
+The period of the Euler and Euler-Cromer methods seem to agree for the same
+initial conditions; for 10 degrees, we observe a period of about 6 seconds and
+for 100 degrees we observe a period of about 8 seconds.
+
+\section{Velocity-Verlet method on a simple pendulum}
+
+Table \ref{tab:pend} shows the ratio of the initial energy to the energy after a
+number of periods for the Velocity-verlet pendulum. Since the Velcity-verlet
+method is symplectic, the results that the energy is the same when varying the
+time step is expected.
+
+\begin{table}[h]
+  \centering
+  \caption{Convergence of energy for the Velcity-Verlet method}
+  \label{tab:pend}
+  \begin{tabular}{c c}
+    \hline\hline
+    Time step [s] & \(\nicefrac{E_0}{E_t}\) \\
+    \hline
+    0.5     & 1.00 \\
+    0.25    & 1.00 \\
+    0.125   & 1.00 \\
+    0.0625  & 1.00 \\
+    0.03125 & 1.00 \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+\end{document}

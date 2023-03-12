@@ -48,6 +48,6 @@ target_link_libraries(Hw3P2 PUBLIC ${PROJECT_NAME})
 
 add_subdirectory(data/)
 
-# if(build_docs)
-#   add_subdirectory(docs/)
-# endif()
+if(build_docs)
+  add_subdirectory(docs/)
+endif()
