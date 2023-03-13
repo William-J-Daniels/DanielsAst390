@@ -19,6 +19,7 @@ axs[0,0].plot(DataTen["time"], DataTen["e_pos"],
             label="Displacement")
 
 ax00 = axs[0,0].twinx()
+ax00.set_ylabel("Energy [arb]")
 ax00.plot(DataTen["time"], DataTen["e_nrg"],
          color="black", linestyle=":",
          label="Energy")
@@ -39,6 +40,7 @@ axs[1,0].plot(DataTen["time"], DataTen["ec_pos"],
             label="Displacement")
 
 ax10 = axs[1,0].twinx()
+ax10.set_ylabel("Energy [arb]")
 ax10.plot(DataTen["time"], DataTen["ec_nrg"],
          color="black", linestyle = ":",
          label="Energy")
@@ -58,6 +60,7 @@ axs[0,1].plot(DataHundred["time"], DataHundred["e_pos"],
             label="Displacement")
 
 ax01 = axs[0,1].twinx()
+ax01.set_ylabel("Energy [arb]")
 ax01.plot(DataHundred["time"], DataHundred["e_nrg"],
          color="black", linestyle=":",
          label="Energy")
@@ -77,6 +80,7 @@ axs[1,1].plot(DataHundred["time"], DataHundred["ec_pos"],
             label="Displacement")
 
 ax11 = axs[1,1].twinx()
+ax11.set_ylabel("Energy [arb]")
 ax11.plot(DataHundred["time"], DataHundred["ec_nrg"],
          color="black", linestyle = ":",
          label="Energy")

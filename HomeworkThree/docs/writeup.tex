@@ -30,31 +30,33 @@
 \begin{figure}[!b]
   \centering
   \caption{Comparison of Euler and Euler-Cromer methods for a pendulum starting
-    from rest at 10 and 100 degrees using a time step of 0.5 seconds}
+    from rest at 10 and 100 degrees using a time step of 0.1 seconds}
   \label{fig:pend}
   \includegraphics[width=\textwidth]{../data/P1Plots}
 \end{figure}
 
 Figure \ref{fig:pend} displays the behavior of two methods for the specified
-pendulums. I know that it is wrong; we expect the Euler method to cause the
-energy of the system to tend towards infinity but that is not what we observe.
-As a matter of fact, at close inspection, I noticed that these two plots are
-actually shifted by one time step. I could not spot the error.
+pendulum. We expect the Euler method to cause the amplitude  to tend towards
+infinity but that is not what we observe. I was unable to produce this behavior
+for any combination of time step or run time that did not also cause the same to
+occur with the Euler-Cromer. It is unclear to me if that is because my
+implementation has a mistake or because I was unable to find a good set of
+parameters.
 
 The period of the Euler and Euler-Cromer methods seem to agree for the same
 initial conditions; for 10 degrees, we observe a period of about 6 seconds and
 for 100 degrees we observe a period of about 8 seconds.
 
-\section{Velocity-Verlet method on a simple pendulum}
+\section{Velocity-verlet method on a simple pendulum}
 
 Table \ref{tab:pend} shows the ratio of the initial energy to the energy after a
-number of periods for the Velocity-verlet pendulum. Since the Velcity-verlet
-method is symplectic, the results that the energy is the same when varying the
+number of periods for the velocity-verlet pendulum. Since the velocity-verlet
+method is symplectic, the result that the energy is the same when varying the
 time step is expected.
 
 \begin{table}[h]
   \centering
-  \caption{Convergence of energy for the Velcity-Verlet method}
+  \caption{Convergence of energy for the velcity-verlet method}
   \label{tab:pend}
   \begin{tabular}{c c}
     \hline\hline

@@ -11,7 +11,7 @@ int main()
 {
     const std::pair<double, double> INITCOND1 = {0.0, (10.0*M_PI/180.0)};
     const std::pair<double, double> INITCOND2 = {0.0, (100.0*M_PI/180.0)};
-    const double TIME_STEP = 0.5;
+    const double TIME_STEP = 0.1;
 
     auto EPend1  = will::EulerPendulum(INITCOND1,
                                        TIME_STEP);
@@ -41,7 +41,7 @@ int main()
     auto CurrentE2  = EPend1.get_state();
     auto currentEC2 = ECPend1.get_state();
 
-    for (int i = 0; i < 40; i++)
+    for (int i = 0; i < 100; i++)
     {
         CurrentE1  = EPend1.advance(TIME_STEP);
         currentEC1 = ECPend1.advance(TIME_STEP);

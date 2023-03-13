@@ -13,8 +13,8 @@ std::tuple<double, double, double> VelocityVerletPendulum::advance(double step)
 
     State = {acceleration, velocity, position};
 
-    energy = 0.5 * std::pow(L, 2) * std::pow(velocity, 2) -
-             g * L * std::cos(position);
+    energy = 0.5 * std::pow(L, 2) * std::pow(velocity, 2) +
+             g * L * (1.0 - std::cos(position));
 
     return State;
 }
