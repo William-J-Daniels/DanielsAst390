@@ -4,6 +4,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(Ast390 VERSION 1.0.0)
 
+find_package(Threads REQUIRED)
+find_package(TBB REQUIRED)
+
 option(build_docs "Build homework writeups" ON)
 option(debugging "Complier settings for debugging" OFF)
 
@@ -19,3 +22,4 @@ find_package(Python COMPONENTS Interpreter REQUIRED)
 add_subdirectory(HomeworkOne)
 add_subdirectory(HomeworkTwo)
 add_subdirectory(HomeworkThree)
+add_subdirectory(HomeworkFour)
