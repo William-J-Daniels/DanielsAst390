@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\ode_integrator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\eulermethod.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\eulercromer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\pendulum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\eulerpendulum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\eulercromerpendulum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\src\velocityverletpendulum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\ode_integrator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\eulermethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\eulercromer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\pendulum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\eulerpendulum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\eulercromerpendulum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\include\velocityverletpendulum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkThree\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{393EE7D6-8B9B-39D1-B8CE-6B173975B2A2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C70599C1-AA17-37DA-8D43-5BFEFA9291F6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

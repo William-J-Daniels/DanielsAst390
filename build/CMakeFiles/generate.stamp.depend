@@ -1,0 +1,35 @@
+# CMake generation dependency list for this directory.
+C:/Program Files (x86)/Intel/oneAPI/tbb/2021.8.0/lib/cmake/tbb/TBBConfig.cmake
+C:/Program Files (x86)/Intel/oneAPI/tbb/2021.8.0/lib/cmake/tbb/TBBConfigVersion.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/FindPython.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/FindPython/Support.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake
+C:/Users/wdwe_/Documents/GitHub/DanielsAst390/CMakeLists.txt
+C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/3.25.1/CMakeCCompiler.cmake
+C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/3.25.1/CMakeCXXCompiler.cmake
+C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/3.25.1/CMakeRCCompiler.cmake
+C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/3.25.1/CMakeSystem.cmake

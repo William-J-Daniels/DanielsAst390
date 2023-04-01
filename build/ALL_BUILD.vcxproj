@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{29CBB29D-CEDB-369C-BC2C-49DD255AA48C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/wdwe_/Documents/GitHub/DanielsAst390/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/wdwe_/Documents/GitHub/DanielsAst390 -BC:/Users/wdwe_/Documents/GitHub/DanielsAst390/build --check-stamp-file C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfig.cmake;C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfigVersion.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython\Support.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/wdwe_/Documents/GitHub/DanielsAst390/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/wdwe_/Documents/GitHub/DanielsAst390 -BC:/Users/wdwe_/Documents/GitHub/DanielsAst390/build --check-stamp-file C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfig.cmake;C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfigVersion.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython\Support.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/wdwe_/Documents/GitHub/DanielsAst390/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/wdwe_/Documents/GitHub/DanielsAst390 -BC:/Users/wdwe_/Documents/GitHub/DanielsAst390/build --check-stamp-file C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfig.cmake;C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfigVersion.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython\Support.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/wdwe_/Documents/GitHub/DanielsAst390/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/wdwe_/Documents/GitHub/DanielsAst390 -BC:/Users/wdwe_/Documents/GitHub/DanielsAst390/build --check-stamp-file C:/Users/wdwe_/Documents/GitHub/DanielsAst390/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfig.cmake;C:\Program Files (x86)\Intel\oneAPI\tbb\2021.8.0\lib\cmake\tbb\TBBConfigVersion.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindPython\Support.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\3.25.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\ZERO_CHECK.vcxproj">
+      <Project>{79FD66A5-1E4D-3C41-927E-D56227250C50}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkFour\HomeworkFour.vcxproj">
+      <Project>{3CAA988F-107E-35F2-9D50-15C3D5A5F3B0}</Project>
+      <Name>HomeworkFour</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkOne\HomeworkOne.vcxproj">
+      <Project>{46B4418C-22F4-3282-B473-41D886CFBEC0}</Project>
+      <Name>HomeworkOne</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkThree\HomeworkThree.vcxproj">
+      <Project>{12A22F37-EE6C-3B1D-BFE8-8E846DA036EE}</Project>
+      <Name>HomeworkThree</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkTwo\HomeworkTwo.vcxproj">
+      <Project>{0566E52D-B184-32D4-AB9F-3766592ED9E7}</Project>
+      <Name>HomeworkTwo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkOne\Hw1P1.vcxproj">
+      <Project>{92B45314-0E9C-37DF-9002-2E62EA0CD4F0}</Project>
+      <Name>Hw1P1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkOne\Hw1P2.vcxproj">
+      <Project>{25C8E86E-1835-3829-B84B-B3035EA790C9}</Project>
+      <Name>Hw1P2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkOne\docs\Hw1Writeup.vcxproj">
+      <Project>{D7C012AF-5299-3C7C-9A6A-F6A3CE72A3C3}</Project>
+      <Name>Hw1Writeup</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkTwo\Hw2P1.vcxproj">
+      <Project>{9E67B8E9-E573-3AB6-BB73-28FB742DA0DA}</Project>
+      <Name>Hw2P1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkTwo\Hw2P2.vcxproj">
+      <Project>{17CCD324-1B10-3E1C-B1E9-2974DF7084C3}</Project>
+      <Name>Hw2P2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkTwo\docs\Hw2Writeup.vcxproj">
+      <Project>{0A224AA0-8AA6-32DB-91AF-15F039BFC4EA}</Project>
+      <Name>Hw2Writeup</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkThree\Hw3P1.vcxproj">
+      <Project>{7B8C4FFE-4166-3159-ABFB-B95EE47D588F}</Project>
+      <Name>Hw3P1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkThree\data\Hw3P1Plots.vcxproj">
+      <Project>{6EE1D155-6610-3054-904E-899B62E285CB}</Project>
+      <Name>Hw3P1Plots</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkThree\data\Hw3P1_csv.vcxproj">
+      <Project>{DCD5DBFB-3113-3337-B7D4-F9416A80D8FB}</Project>
+      <Name>Hw3P1_csv</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkThree\Hw3P2.vcxproj">
+      <Project>{74D980DF-E14C-3F18-BA21-5500F78551FB}</Project>
+      <Name>Hw3P2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkThree\docs\Hw3Writeup.vcxproj">
+      <Project>{0FD79A57-9C14-3B9F-95D1-52E05578F97A}</Project>
+      <Name>Hw3Writeup</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkFour\Hw4P1.vcxproj">
+      <Project>{FC9101F6-DB76-371D-97CE-B2FB37282CCC}</Project>
+      <Name>Hw4P1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\build\HomeworkTwo\SimpsonsDemo.vcxproj">
+      <Project>{B1428A4B-D15B-3AA3-B52B-3342BA4D02CF}</Project>
+      <Name>SimpsonsDemo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

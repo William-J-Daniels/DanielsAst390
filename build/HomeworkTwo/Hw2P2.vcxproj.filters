@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkTwo\examples\problem_two.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wdwe_\Documents\GitHub\DanielsAst390\HomeworkTwo\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C70599C1-AA17-37DA-8D43-5BFEFA9291F6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
