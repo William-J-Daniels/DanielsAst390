@@ -80,19 +80,19 @@ std::vector<T> LinearSolver<T>::gaus_elim()
             swap_rows(row_max_idx, current_row, Scales);
 
         // then we forward eliminate
-        forward_eliminate(0, A.numcolumns(), current_row);
+        // forward_eliminate(0, A.numcolumns(), current_row);
 
         /* parallelize later */
-        // for (std::size_t erow = current_row + 1; erow < A.numrows(); ++erow)
-        // {
-        //     auto factor = A(erow, current_row) / A(current_row, current_row);
-        //     for (std::size_t ecol = current_row + 1; ecol < A.numcolumns(); ++ecol)
-        //     {
-        //         A.set(erow, ecol, A(erow,ecol) - A(current_row, ecol) * factor);
-        //     }
-        //     A.set(erow, current_row, 0.0);
-        //     b[erow] = b[erow] - b[current_row]*factor;
-        // }
+        for (std::size_t erow = current_row + 1; erow < A.numrows(); ++erow)
+        {
+            auto factor = A(erow, current_row) / A(current_row, current_row);
+            for (std::size_t ecol = current_row + 1; ecol < A.numcolumns(); ++ecol)
+            {
+                A.set(erow, ecol, A(erow,ecol) - A(current_row, ecol) * factor);
+            }
+            A.set(erow, current_row, 0.0);
+            b[erow] = b[erow] - b[current_row]*factor;
+        }
 
         // this bit of code apears multiple times across this class and matrix,
         // it should be moved to a function
@@ -242,7 +242,7 @@ void LinearSolver<T>::forward_eliminate(std::size_t startr, std::size_t endr,
     {
         factor = A(i, current_row) / A(current_row, current_row);
         //std::cout << " " << startr << " " << factor << std::endl;
-        std::cout << factor << std::endl;
+        // std::cout << factor << std::endl;
         std::transform(
             A.slice_begin(i, i, i, A.numcolumns()-1),
             A.slice_end(i, i, i, A.numcolumns()-1),
@@ -302,7 +302,7 @@ std::vector<T> LinearSolver<T>::jacobi_iter(std::vector<T> InitGuess)
         X = R * X;
         X = B - X;
         X = D * X;
-        std::cout << X << std::endl;
+        // std::cout << X << std::endl;
     } while (true);
 
     return Solutions;

@@ -182,6 +182,7 @@ public:
     }
     void transpose();
     Matrix<T> operator* (Matrix<T>& M2);
+    std::vector<T> operator* (std::vector<T> V);
     Matrix<T> naive_mult(Matrix<T>& M2);
     Matrix<T> strassen_mult(Matrix<T>& M2);
 
@@ -588,6 +589,25 @@ Matrix<T> Matrix<T>::strassen_mult(Matrix<T>& M2)
     );
 
     return newMatrix;
+}
+
+template <class T>
+std::vector<T> Matrix<T>::operator* (std::vector<T> V)
+{
+    // assume V is a column vector
+    auto newVec = std::vector<T>(V.size());
+
+    // can paralellize later
+    for (unsigned i  = 0; i < columns; i++)
+    {
+        for (unsigned j = 0; j < rows; j++)
+        {
+            newVec[i] = newVec[i] + (V[j] * data[i*columns + j]);
+        }
+
+    }
+
+    return newVec;
 }
 
 } // namespace la
