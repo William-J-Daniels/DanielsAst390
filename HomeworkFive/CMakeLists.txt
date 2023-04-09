@@ -31,3 +31,7 @@ SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 add_executable(Hw5P1 examples/problem.cpp)
 target_link_libraries(Hw5P1 PUBLIC ${PROJECT_NAME})
+
+if(build_docs)
+  add_subdirectory(docs/)
+endif()

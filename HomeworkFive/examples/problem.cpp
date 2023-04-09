@@ -3,19 +3,25 @@
 #include <iostream>
 #include <cmath>
 #include <iostream>
+#include <vector>
 
 double pressure(double density, double temperature);
 
 int main()
 {
-    auto PTab = will::TwoDimInterp(pressure,
-                                    4096, 0.0, 4.0,
-                                    4096, 6.0, 8.0,
-                                    10.0);
+    for (unsigned i = 6; i < 15; i++) // more than 2^15 runs out of memory
+    {
+        unsigned size = std::pow(2, i);
+        std::cout << size << " by " << size << " grid" << std::endl;
+        auto PTab = will::TwoDimInterp(pressure,
+                                        size, 0.0, 4.0,
+                                        size, 6.0, 8.0,
+                                        10.0);
 
-    std::cout << "Interpolated: " << PTab.value_at(500.0, 6.0e7) << std::endl;
-    std::cout << "Analytic: " << pressure(500.0, 6.0e7) << std::endl;
-    std::cout << "Difference: " << PTab.value_at(500.0, 6.0e7) - pressure(500.0, 6.0e7) << std::endl;
+        std::cout << "Interpolated: " << PTab.value_at(500.0, 6.0e7) << std::endl;
+        std::cout << "Analytic: " << pressure(500.0, 6.0e7) << std::endl;
+        std::cout << "Difference: " << PTab.value_at(500.0, 6.0e7) - pressure(500.0, 6.0e7) << std::endl << std::endl;
+    }
 
     return 0;
 }
