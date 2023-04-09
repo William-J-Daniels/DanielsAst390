@@ -6,6 +6,7 @@ project(Ast390 VERSION 1.0.0)
 
 find_package(Threads REQUIRED)
 find_package(TBB REQUIRED)
+find_package(OpenMP)
 
 option(build_docs "Build homework writeups" ON)
 option(debugging "Complier settings for debugging" OFF)
@@ -23,3 +24,4 @@ add_subdirectory(HomeworkOne)
 add_subdirectory(HomeworkTwo)
 add_subdirectory(HomeworkThree)
 add_subdirectory(HomeworkFour)
+add_subdirectory(HomeworkFive)

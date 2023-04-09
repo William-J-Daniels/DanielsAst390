@@ -12,6 +12,7 @@ add_library(${PROJECT_NAME} SHARED
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(${PROJECT_NAME} PUBLIC TBB::tbb)
+target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)
 
 target_include_directories(${PROJECT_NAME}
   PRIVATE
