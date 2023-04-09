@@ -25,4 +25,45 @@
 
 \section{Bilinear interpolation}
 
+A table of values was created for the function
+\begin{equation}
+  P \left(\rho, T\right) =
+  \frac{k_B \rho T}{\mu_I m_u} +
+  \frac{1}{3} a T^4 +
+  K \rho^{\nicefrac{5}{3}} \mu_e^{-\nicefrac{5}{3}}
+\end{equation}
+and bilinear interpolation was used to predict the value of the function at any
+point within the tabulated domain of \(\rho \in \left[ 1, 10^4 \right]\) and
+\(T \in \left[ 10^6, 10^8 \right]\). To test the code, the convergence of the
+solution was tested by doubling the grid size from \(64\) until \(16384\) is
+reached and testing the difference of the prediced and analytic values of the
+central point \(\left(500, 10^7\right)\). The results are tabulated in table
+\ref{tab:convergence}.
+
+\begin{table}[h]
+  \centering
+  \caption{Convergence}
+  \label{tab:convergence}
+  \begin{tabular}{c c c}
+    \hline\hline
+    Grid size & Difference & Quotient \\
+    \hline
+    \(2^6\)    & 6.826e18 & --    \\
+    \(2^7\)    & 2.058e18 & 3.317 \\
+    \(2^8\)    & 4.668e17 & 4.408 \\
+    \(2^9\)    & 3.763e17 & 1.240 \\
+    \(2^{10}\) & 4.410e16 & 8.533 \\
+    \(2^{11}\) & 1.971e16 & 2.237 \\
+    \(2^{12}\) & 1.030e16 & 1.914 \\
+    \(2^{13}\) & 5.609e15 & 1.836 \\
+    \(2^{14}\) & 2.344e15 & 2.392 \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+We see from the table that once the grid size becomes large enough (\(2^{11}\))
+we're able to observe the expected convergence. The odd behaviour before then I
+attribute to the grid not being fine enough, causing the point of interest to
+occasionally be disproportionally close or far from the tabulated points.
+
 \end{document}

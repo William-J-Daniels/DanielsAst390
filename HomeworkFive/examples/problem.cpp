@@ -9,7 +9,7 @@ double pressure(double density, double temperature);
 
 int main()
 {
-    for (unsigned i = 6; i < 15; i++) // more than 2^15 runs out of memory
+    for (unsigned i = 6; i < 15; i++) // not enough memory to go bigger
     {
         unsigned size = std::pow(2, i);
         std::cout << size << " by " << size << " grid" << std::endl;
@@ -17,10 +17,12 @@ int main()
                                         size, 0.0, 4.0,
                                         size, 6.0, 8.0,
                                         10.0);
-
-        std::cout << "Interpolated: " << PTab.value_at(500.0, 6.0e7) << std::endl;
-        std::cout << "Analytic: " << pressure(500.0, 6.0e7) << std::endl;
-        std::cout << "Difference: " << PTab.value_at(500.0, 6.0e7) - pressure(500.0, 6.0e7) << std::endl << std::endl;
+        auto interp = PTab.value_at(500.0, 6.0e7);
+        auto anal   = pressure(500.0, 6.0e7);
+        std::cout << "Interpolated: " << interp << std::endl;
+        std::cout << "Analytic: " << anal << std::endl;
+        std::cout << "Difference: " << std::abs(interp - anal) << std::endl
+                  << std::endl;
     }
 
     return 0;
