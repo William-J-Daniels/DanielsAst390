@@ -1,0 +1,92 @@
+\documentclass[12pt, letterpaper]{article}
+
+\input{../../LatexAssets/packages.tex}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+    Will Daniels; 112774725
+
+    April 22, 2023
+
+    Computational Astrophysics; AST 390
+
+    Homework 6
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \includegraphics[height = 48pt]{../../LatexAssets/SBULogoStacked}
+    \end{flushright}
+\end{minipage}
+\noindent
+\rule{\textwidth}{1pt}
+
+\section{Finite difference on Burgers' equation}
+
+For this assigment, we consider two first-order finite-difference techniques for
+solving Burgers' equation, \( u_t + u u_x = 0 \). The two analytically identical
+forms are
+\begin{equation}
+  u_i^{n+1} = u_i^n -
+  \frac{\Delta t}{\Delta x} u_i^n \left( u_i^n - u_{i-1}^n \right)
+  \label{eq:method_a}
+\end{equation}
+and
+\begin{equation}
+  u_i^{n+1} = u_i^n + -
+  \frac{\Delta t}{2 \Delta x} \left(
+    \left( u_i^n \right)^2 - \left( u_{i-1}^n \right)^2
+    \label{eq:method_b}
+  \right)
+\end{equation}
+We will call \eqref{eq:method_a} method a and \eqref{eq:method_b} method b. The
+numerical performance of the two methods is displayed in figure \ref{fig:plots}
+and the shock speed tabulated in table \ref{tab:speed}. The simulation time is
+0.1 seconds and the parameter \(C\) was choosen to be 0.5. It is true that for
+32 and 64 bins the shock speed was exactly the same. This is because there are
+not enough points to exactly capture where the shock is. This would improve with
+more bins, but even 256 bins takes prohibitively long to run.
+
+\begin{figure} [!b]
+  \centering
+  \caption{Plots at various number of points}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \caption{32 points}
+    \includegraphics[width=\textwidth]{../data/32.jpeg}
+  \end{subfigure} \hfill \begin{subfigure}{0.3\textwidth}
+    \centering
+    \caption{64 points}
+    \includegraphics[width=\textwidth]{../data/64.jpeg}
+  \end{subfigure} \hfill \begin{subfigure}{0.3\textwidth}
+    \centering
+    \caption{128 points}
+    \includegraphics[width=\textwidth]{../data/128.jpeg}
+  \end{subfigure}
+  \label{fig:plots}
+\end{figure}
+
+\begin{table} [!b]
+  \centering
+  \caption{Shock speeds}
+  \begin{tabular}{c c c}
+    \hline\hline
+    Number of points & Method a & Method b \\
+    \hline
+    32  & 1.613 & 1.613 \\
+    64  & 1.429 & 1.429 \\
+    128 & 1.417 & 1.496 \\
+    \hline\hline
+  \end{tabular}
+  \label{tab:speed}
+\end{table}
+
+We imediatly notice that method b predicts a faster shock speed than method a,
+which raises the question which is correct, since the disritizations are
+analytically equivalent. Although equivalent in the limit when the number of
+discrete \(x\) values goes to infinity, method b has a stronger sense of
+physicsal conservation laws, so we should trust it as being more accurate.
+
+\end{document}
