@@ -98,4 +98,12 @@ analytically equivalent. Although equivalent in the limit when the number of
 discrete \(x\) values goes to infinity, method b has a stronger sense of
 physicsal conservation laws, so we should trust it as being more accurate.
 
+What \eqref{eq:method_b} is saying in english is that the velocity at some point
+\(i\) in space after some amount of time \(dt\) is equal to that orignal
+velocity minus the linearly interpolated area between the velocity at the point
+of interest and the point \(dx\) behind that point scaled by a factor of
+\(\frac{dt}{dx}\). This captures the flux of velocity through the discretized
+space and keeps it a conserved quantity, unlike in \eqref{eq:method_a}, where no
+such notion of integration between adjacent cells exits.
+
 \end{document}
