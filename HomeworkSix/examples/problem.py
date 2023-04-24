@@ -33,10 +33,11 @@ class FDGrid:
 
     def fill_BCs(self):
         """ fill the ghostcells with outflow boundary conditions """
-        self.a[self.ilo-1] = self.a[self.ilo]
-        self.a[self.ihi+1] = self.a[self.ihi]
-        self.b[self.ilo-1] = self.b[self.ilo]
-        self.b[self.ihi+1] = self.b[self.ihi]
+        self.a[0:self.ilo] = self.a[self.ilo]
+        self.a[self.ihi:-1] = self.a[self.ihi]
+
+        self.b[0:self.ilo] = self.b[self.ilo]
+        self.b[self.ihi:-1] = self.b[self.ihi]
 
     def plot(self):
         fig = plt.figure()
@@ -51,7 +52,7 @@ class FDGrid:
         ax.legend()
         return fig
 
-def upwind_advection(nx, C, tmax=1.0, init_cond=None):
+def upwind_advection(nx, C_init, tmax=1.0, init_cond=None):
     """solve the linear advection equation using FTCS.  You are required
     to pass in a function f(g), where g is a FDGrid object that sets up
     the initial conditions"""
@@ -62,7 +63,6 @@ def upwind_advection(nx, C, tmax=1.0, init_cond=None):
     init_cond(g)
 
     g.init[:] = g.a[:]
-    g.b[:] = g.a[:]
 
     # evolution loop
     anew = g.scratch_array()
@@ -70,6 +70,7 @@ def upwind_advection(nx, C, tmax=1.0, init_cond=None):
 
     # while loop for a
     t = 0.0
+    C = C_init
     while t < tmax:
         dt = C*g.dx/g.a.max()
 
@@ -94,7 +95,9 @@ def upwind_advection(nx, C, tmax=1.0, init_cond=None):
 
     # while loop for b
     t = 0.0
+    C = C_init
     while t < tmax:
+        # print("inside problem loop")
         dt = C*g.dx/g.b.max()
 
         if t + dt > tmax:
@@ -121,16 +124,19 @@ def upwind_advection(nx, C, tmax=1.0, init_cond=None):
 def shock(g):
     g.a[:] = 2.0
     g.a[g.x > 0.5] = 1.0
-    g.b[:] = g.a[:]
+
+    g.b[:] = 2.0
+    g.b[g.x > 0.5] = 1.0
 
 C = 0.5
 tmax = 0.1
 
-for nx in [32, 64, 128]:
+for nx in [32, 64, 128, 256, 512]: # 32, 64, 128, 256, 512
     g = upwind_advection(nx, C, tmax=tmax, init_cond=shock)
-    Sa = (g.x[g.a <= 1.5][1] - g.x[g.init <= 1.5][0]) / tmax
+    Sa = (g.x[g.a <= 1.5][0] - g.x[g.init <= 1.5][0]) / tmax
     Sb = (g.x[g.b <= 1.5][1] - g.x[g.init <= 1.5][0]) / tmax
     fig = g.plot()
+    fig.tight_layout()
     fig.savefig("../data/"+str(nx)+".jpeg")
     print(
         "With "+str(nx)+" points, method a predicts a shock speed of "+str(Sa)+

@@ -44,10 +44,7 @@ and
 We will call \eqref{eq:method_a} method a and \eqref{eq:method_b} method b. The
 numerical performance of the two methods is displayed in figure \ref{fig:plots}
 and the shock speed tabulated in table \ref{tab:speed}. The simulation time is
-0.1 seconds and the parameter \(C\) was choosen to be 0.5. It is true that for
-32 and 64 bins the shock speed was exactly the same. This is because there are
-not enough points to exactly capture where the shock is. This would improve with
-more bins, but even 256 bins takes prohibitively long to run.
+0.1 seconds and the parameter \(C\) was choosen to be 0.5.
 
 \begin{figure} [!b]
   \centering
@@ -65,19 +62,31 @@ more bins, but even 256 bins takes prohibitively long to run.
     \caption{128 points}
     \includegraphics[width=\textwidth]{../data/128.jpeg}
   \end{subfigure}
+
+  \hfill \begin{subfigure}{0.3\textwidth}
+    \centering
+    \caption{256 points}
+    \includegraphics[width=\textwidth]{../data/256.jpeg}
+  \end{subfigure} \hfill \begin{subfigure}{0.3\textwidth}
+    \centering
+    \caption{512 points}
+    \includegraphics[width=\textwidth]{../data/512.jpeg}
+  \end{subfigure} \hfill
   \label{fig:plots}
 \end{figure}
 
-\begin{table} [!b]
+\begin{table}
   \centering
   \caption{Shock speeds}
   \begin{tabular}{c c c}
     \hline\hline
     Number of points & Method a & Method b \\
     \hline
-    32  & 1.613 & 1.613 \\
-    64  & 1.429 & 1.429 \\
-    128 & 1.417 & 1.496 \\
+    32  & 1.290 & 1.613 \\
+    64  & 1.270 & 1.429 \\
+    128 & 1.339 & 1.496 \\
+    256 & 1.372 & 1.490 \\
+    512 & 1.409 & 1.507 \\
     \hline\hline
   \end{tabular}
   \label{tab:speed}
