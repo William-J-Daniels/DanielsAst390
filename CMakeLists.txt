@@ -26,3 +26,5 @@ add_subdirectory(HomeworkThree)
 add_subdirectory(HomeworkFour)
 add_subdirectory(HomeworkFive)
 add_subdirectory(HomeworkSix)
+#
+add_subdirectory(FinalProject)

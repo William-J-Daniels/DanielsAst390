@@ -90,7 +90,7 @@ def diffuse_implicit(nx, k, C, tmax, init_cond):
     """
 
     # create the grid
-    ng = 0
+    ng = 1
 
     g = Grid(nx, ng)
 
@@ -102,6 +102,8 @@ def diffuse_implicit(nx, k, C, tmax, init_cond):
     g.phi[:] = init_cond(g, k)
 
     while t < tmax:
+
+        g.fill_BCs()
 
         # make sure we end right at tmax
         if t + dt > tmax:
@@ -126,7 +128,7 @@ fig, ax = plt.subplots()
 
 tmax = 10 * t_diffuse
 
-Ns = [16, 32, 64, 128, 256, 512]
+Ns = [16, 32, 64, 128, 256, 512, 1024]
 dxs = []
 errors = []
 
@@ -142,16 +144,14 @@ ax.scatter(dxs, errors, marker="x", label="original")
 def implicit_step(gr, phi, k, dt):
     """ diffuse phi implicitly through timestep dt """
 
-    # phinew = gr.scratch_array()
-
     alpha = k * dt / gr.dx**2
 
     # create the RHS of the matrix
-    phi = np.concatenate(([phi[0]],phi))
-    phi = np.append(phi,phi[-1])
-    R = phi[1:len(phi)-1]
-    for i in range(0,len(R)):
-        R[i] = R[i] + 0.5*alpha*(phi[i] - 2.0*phi[i+1] + phi[i+2])
+    # phi = np.concatenate(([phi[0]],phi))
+    # phi = np.append(phi,phi[-1])
+    R = gr.scratch_array()
+    for i in range(gr.ilo, gr.ihi+1):
+        R[i] = gr.phi[i] + 0.5*alpha*(gr.phi[i-1] - 2.0*gr.phi[i] + gr.phi[i+1])
 
     # create the diagonal, d+1 and d-1 parts of the matrix
     d = (1.0 + alpha)*np.ones(gr.nx)
@@ -171,7 +171,8 @@ def implicit_step(gr, phi, k, dt):
     # solve
     A = np.matrix([u, d, l])
 
-    phinew = linalg.solve_banded((1, 1), A, R)
+    phinew = gr.scratch_array()
+    phinew[gr.ilo:gr.ihi+1] = linalg.solve_banded((1, 1), A, R[gr.ilo:gr.ihi+1])
 
     return phinew
 
@@ -189,9 +190,10 @@ ax.scatter(dxs, errors, marker="x", label="new")
 ax.set_xscale("log")
 ax.set_yscale("log")
 
-ax.set_xlabel(r"$\Delta t$")
+ax.set_xlabel(r"$\Delta x$")
 ax.set_ylabel("Absolute error")
 
 ax.legend()
+fig.tight_layout()
 
-fig.savefig("../data/TEST.jpeg")
+fig.savefig("../data/converge.jpeg")

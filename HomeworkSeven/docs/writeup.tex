@@ -1,0 +1,42 @@
+\documentclass[12pt, letterpaper]{article}
+
+\input{../../LatexAssets/packages.tex}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+    Will Daniels; 112774725
+
+    April 25, 2023
+
+    Computational Astrophysics; AST 390
+
+    Homework 7
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \includegraphics[height = 48pt]{../../LatexAssets/SBULogoStacked}
+    \end{flushright}
+\end{minipage}
+\noindent
+\rule{\textwidth}{1pt}
+
+\section{Crank-Nicolson diffusion}
+This assignment is to demonstrate that the Crank-Nicolson method, which uses a
+second order discretization in time, converges better than the implicit method
+we did in class, which uses a first order accurate discretation of time.
+
+After making the appropriate modifications to the class and functions from the
+course notes, I was able to achieve the enhanced convergence shown in figure
+\ref{fig:converge}.
+
+\begin{figure}[!h]
+  \centering
+  \caption{Comparion of convergence of the two diffusion methods}
+  \label{fig:converge}
+  \includegraphics[width=0.75\textwidth]{../data/converge.jpeg}
+\end{figure}
+
+\end{document}
