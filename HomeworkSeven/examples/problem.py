@@ -123,33 +123,35 @@ k = 1
 t_diffuse = (1.0/nx)**2 / k
 
 fig, ax = plt.subplots()
+
 tmax = 10 * t_diffuse
 
-Cs = [512 ,256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625]
-Ns = [16, 32, 64, 128, 256]
-dts = []
+Ns = [16, 32, 64, 128, 256, 512]
+dxs = []
 errors = []
 
-for C in Cs:
-# for nx in Ns:
+for nx in Ns:
     g = diffuse_implicit(nx, k, C, tmax, gaussian_ic)
     phi_analytic = gaussian_ic(g, k, t=tmax)
-    dts.append(C * 0.5 *g.dx**2 / k)
-    # dts.append(g.dx)
+    dxs.append(g.dx)
     errors.append(g.norm(g.phi - phi_analytic))
 
-ax.scatter(dts, errors, marker="x", label="original")
+ax.scatter(dxs, errors, marker="x", label="original")
 
 # redifinition of implicit step function
 def implicit_step(gr, phi, k, dt):
     """ diffuse phi implicitly through timestep dt """
 
-    phinew = gr.scratch_array()
+    # phinew = gr.scratch_array()
 
     alpha = k * dt / gr.dx**2
 
     # create the RHS of the matrix
-    R = phi[gr.ilo:gr.ihi+1]
+    phi = np.concatenate(([phi[0]],phi))
+    phi = np.append(phi,phi[-1])
+    R = phi[1:len(phi)-1]
+    for i in range(0,len(R)):
+        R[i] = R[i] + 0.5*alpha*(phi[i] - 2.0*phi[i+1] + phi[i+2])
 
     # create the diagonal, d+1 and d-1 parts of the matrix
     d = (1.0 + alpha)*np.ones(gr.nx)
@@ -169,22 +171,20 @@ def implicit_step(gr, phi, k, dt):
     # solve
     A = np.matrix([u, d, l])
 
-    phinew[gr.ilo:gr.ihi+1] = linalg.solve_banded((1, 1), A, R)
+    phinew = linalg.solve_banded((1, 1), A, R)
 
     return phinew
 
-dts = []
+dxs = []
 errors = []
 
-for C in Cs:
-# for nx in Ns:
+for nx in Ns:
     g = diffuse_implicit(nx, k, C, tmax, gaussian_ic)
     phi_analytic = gaussian_ic(g, k, t=tmax)
-    dts.append(C * 0.5 *g.dx**2 / k)
-    # dts.append(g.dx)
+    dxs.append(g.dx)
     errors.append(g.norm(g.phi - phi_analytic))
 
-ax.scatter(dts, errors, marker="x", label="new")
+ax.scatter(dxs, errors, marker="x", label="new")
 
 ax.set_xscale("log")
 ax.set_yscale("log")
