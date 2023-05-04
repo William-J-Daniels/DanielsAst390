@@ -10,11 +10,16 @@ find_package(OpenMP REQUIRED)
 
 option(build_docs "Build homework writeups" ON)
 option(debugging "Complier settings for debugging" OFF)
+option(performance "Enable complier optimizations" ON)
 
 if(debugging)
   add_compile_options(-Wall)
   add_compile_options(-fsanitize=address)
   link_libraries(-fsanitize=address)
+endif()
+
+if(performance)
+  add_compile_options(-O3)
 endif()
 
 find_package(Python COMPONENTS Interpreter REQUIRED)
