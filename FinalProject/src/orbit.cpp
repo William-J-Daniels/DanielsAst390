@@ -73,7 +73,7 @@ std::vector<State> Orbit::Verlet(unsigned periods, unsigned divisions)
     return History;
 }
 
-std::vector<State> Orbit::Yoshida(unsigned periods, unsigned divisions)
+std::vector<State> Orbit::Yoshida4(unsigned periods, unsigned divisions)
 {
     auto History = std::vector<State>(periods*divisions + 2);
     History[0] = S;
@@ -119,6 +119,16 @@ std::vector<State> Orbit::Yoshida(unsigned periods, unsigned divisions)
     }
 
     return History;
+}
+
+double Orbit::ic_error()
+{
+    /* To test convergence, returns the distance of the current state from the
+     * initial state.
+     */
+    return(
+        std::sqrt(std::pow(S.xpos, 2) + std::pow(S.ypos-init_pos, 2))
+    );
 }
 
 void Orbit::reset()

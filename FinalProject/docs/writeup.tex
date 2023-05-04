@@ -1,0 +1,76 @@
+\documentclass[12pt, letterpaper]{article}
+
+\input{../../LatexAssets/packages.tex}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.5\textwidth}
+    Will Daniels; 112774725
+
+    May 4, 2023
+
+    Computational Astrophysics; AST 390
+
+    Final project
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+        \includegraphics[height = 48pt]{../../LatexAssets/SBULogoStacked}
+    \end{flushright}
+\end{minipage}
+\noindent
+\rule{\textwidth}{1pt}
+
+\tableofcontents
+
+\section{Introduction}
+Symplectic integrators are those which are able to conserve the hamiltonian,
+\(\mathcal{H}\), of a system. They are useful in a variety of simulation
+settings, especially long-term simulations, such as procession or stellar
+evolution codes, where an unboundedly changing energy will result in unusable
+results.
+
+\section{Yoshida symplectic integration scheme}
+In 1990, Yoshida published a method for finding symplectic integrators of
+arbitrary even order. He realized that when the hamiltonian is seperable and
+representative of the total conserived energy, \(\mathcal{H} =
+\mathcal{T}(p) + \mathcal{V}(q)\), that through operator relations, we can
+solve the following system of non-linear equations for the coefficients \(c_i\)
+and \(d_i\) to construct a symplectic integrator of even order \(n\).
+\begin{equation}
+  \exp(\tau (A + B)) = \prod_{i=1}^k \exp(C_i \tau A) \exp(d_i \tau B)
+  + \mathcal{O}(\tau^{n+1})
+\end{equation}
+Here, \(A\) and \(B\) are non-commutative operators and \(\tau\) is a small
+real number. The \(c_i\) and \(d_i\) are also real.
+
+In priciple, this enables us to contruct arbitrarily high order even symplectic
+integrators. Practically, this may not be desireable because higher orders
+require increasingly many (potentially expensive) acceleration updates.
+Furthermore, the challange assosiated with solving the non linear system of
+equations makes doing so prohibative. In his paper, Yoshida comments that
+Newton-Rhapson is not applicable because constructing the Jacobian matrix is
+also difficult. He used the Brent method to provide multiple solutions for
+integrators of order 6 and 8.
+
+\section{Compared to other sympletic integrators}
+For the coding portion of my project, I decided to compare Yoshida4 to the
+symplectic integrators we learned in the course, Euler Cromer (first oder) and
+Verlet (second order). I did so by simulating the orbit of a 1 SM planet about
+a 1 SM star, with a perihelion of 1 AU and eccentricity 0.7.
+The orbit and energy of each integrator over 64 periods is shown in the figure.
+Clearly, the higher order Yoshida4 is superior to Verlet and EulerCromer.
+
+\begin{figure}[h]
+  \centering
+  \caption{Comparison of integration schemes}
+  \begin{subfigure}{0.475\textwidth}
+    \includegraphics[width=\textwidth]{../data/Orbits.jpeg}
+  \end{subfigure} \hfill \begin{subfigure}{0.475\textwidth}
+    \includegraphics[width=\textwidth]{../data/Energies.jpeg}
+  \end{subfigure}
+\end{figure}
+
+\end{document}

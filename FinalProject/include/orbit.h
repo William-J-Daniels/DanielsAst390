@@ -32,10 +32,11 @@ public:
     // integrators
     std::vector<State> EulerCromer(unsigned periods, unsigned divisions);
     std::vector<State> Verlet(unsigned periods, unsigned divisions);
-    std::vector<State> Yoshida(unsigned periods, unsigned divisions);
+    std::vector<State> Yoshida4(unsigned periods, unsigned divisions);
 
     // utility
     void reset();
+    double ic_error();
 
 private:
     static constexpr double G = 4.0 * M_PI*M_PI;

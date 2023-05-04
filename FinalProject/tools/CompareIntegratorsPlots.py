@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 EulerCromerData = pd.read_csv("../data/EulerCromer.csv")
 VerletData = pd.read_csv("../data/Verlet.csv")
-YoshidaData = pd.read_csv("../data/Yoshida.csv")
+Yoshida4Data = pd.read_csv("../data/Yoshida4.csv")
 
 fig, ax = plt.subplots()
 ax.set_title("Orbits")
@@ -15,8 +15,8 @@ ax.plot(EulerCromerData["xpos"], EulerCromerData["ypos"],
         lw=0.5, label="EulerCromer")
 ax.plot(VerletData["xpos"], VerletData["ypos"],
         lw=0.5, label="Verlet")
-ax.plot(YoshidaData["xpos"], YoshidaData["ypos"],
-        lw=0.5, label="Yoshida")
+ax.plot(Yoshida4Data["xpos"], Yoshida4Data["ypos"],
+        lw=0.5, label="Yoshida4")
 
 ax.legend()
 ax.set_aspect(1.0)
@@ -34,8 +34,8 @@ ax.plot(EulerCromerData["time"], EulerCromerData["energy"],
         lw=0.5, label="EulerCromer")
 ax.plot(VerletData["time"], VerletData["energy"],
         lw=0.5, label="Verlet")
-ax.plot(YoshidaData["time"], YoshidaData["energy"],
-        lw=0.5, label="Yoshida")
+ax.plot(Yoshida4Data["time"], Yoshida4Data["energy"],
+        lw=0.5, label="Yoshida4")
 
 ax.legend()
 fig.tight_layout()
